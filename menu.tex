@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[textwidth=12cm,centering]{geometry}
+\usepackage[x11names]{xcolor}
+\usepackage{background}
+\usepackage{calligra}
+
+\newcommand*\wb[3]{%
+  {\fontsize{#1}{#2}\usefont{U}{webo}{xl}{n}#3}}
+
+% The page frame
+\SetBgColor{Goldenrod3}
+\SetBgAngle{0}
+\SetBgScale{1}
+\SetBgOpacity{1}
+\SetBgContents{%
+\begin{tikzpicture}
+\node at (0.5\paperwidth,0) {\wb{80}{34}{E}\rule[60pt]{.125\textwidth}{0.4pt}%
+  \raisebox{55pt}{%
+  \makebox[.75\textwidth]{\ \fontsize{24}{29}\selectfont\scshape Cocktail Selection}}%
+  \rule[60pt]{.125\textwidth}{0.4pt}\wb{80}{34}{F}};
+\node at (2,-0.5\textheight) {\rule{0.4pt}{.8\textheight}};
+\node at (19.5,-0.5\textheight) {\rule{0.4pt}{.8\textheight}};
+\node at (0.5\paperwidth,-\textheight) {\wb{80}{34}{G}\rule[-10pt]{\textwidth}{0.4pt}\wb{80}{34}{H}} ;
+\end{tikzpicture}%
+}
+
+% colorize text
+\newcommand*\ColText[1]{\textcolor{Goldenrod3}{#1}}
+
+% a tabular* for each food group
+\newenvironment{Group}[1]
+  {\noindent\begin{tabular*}{\textwidth}{@{}p{\linewidth}@{\extracolsep{\fill}}c@{}}
+    {\fontsize{24}{29}\selectfont\ColText{#1}}\\[1.0em]}
+  {\end{tabular*}}
+
+% to format each entry
+\newcommand*\Entry[2]{%
+ \centering{\calligra\large #1} & #2}
+
+% to format each subentry
+\newcommand*\Expl[1]{%
+\centering{\calligra#1}}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{Group}{}
+
+\vspace{2.0em}
+\Entry{\textbf{Myrtle Berry Flip}}\\
+\Expl{A refreshing mix of myrtle berry (mirte bessen) liqueur, gin, and a citrus base. This cocktail combines the dominant herbal notes of myrtle berry with the freshness of a neutral spirit, balanced by the sweetness of cherry.}
+\vspace{2.0em}
+
+\Entry{\textbf{Manila Julep}}\\
+\Expl{Southern hospitality meets the far East. A Southern US classic of fresh mint leaves under Bulliet rye whiskey topped off with a splash of dark rum and orange twist.}
+\vspace{2.0em}
+
+
+\Entry{\textbf{Singani Sour}}\\
+\Expl{An exotic take on a true classic. This drink is reminiscent of a pisco or amaretto sour but uses Singani Brandy (imported from Bolivia) as its base. A perfect choice for a complex flavor derived from both Pechaud and Angostura bitters.}
+\vspace{2.0em}
+
+
+\Entry{\textbf{Sazerac}}\\
+\Expl{The New Orleans classic! Rye or Bourbon whiskey poured over a pastis wash. Sweetened and spiced with Pechaud bitters (imported from Louisianna, USA)}
+\vspace{2.0em}
+
+\Entry{\textbf{Katherine's Compot}}\\
+\Expl{Produced in-house; this rhubarb, strawberry, and apple compot is made with organically grown green apples. Infused with our finest Dutch gin.\\
+Also available alcohol-free.} \\
+\end{Group}
+
+\vfill
+
+\end{document}
